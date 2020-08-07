@@ -4,7 +4,6 @@ import os
 import sys
 dotenv.load_dotenv(verbose=True)
 TOKEN = os.getenv("TOKEN")
-OWNER_ID = os.getenv("OWNER_ID")
 
 import time
 
@@ -22,6 +21,18 @@ client.remove_command('help')
 async def ping(ctx):
     """Ping the bot"""
     await ctx.send(f"Pong :zany_face: **{round(client.latency * 1000)} ms**")
+@client.event
+async def on_message(message):
+    """Responds to "stfu" with "no u" """
+    if message.content.startswith("stfu") and message.content.endswith("stfu"):
+        await message.channel.send("no u")
+    await client.process_commands(message)
+@client.event
+async def on_message(message):
+    """Reacts with a wave emote to hi or hello and stuff"""
+    if message.content.startswith(("Hey ", "Hello ", "Hi ", "Sup ", "Oi ", "yo ", "hey ", "hello ", "hi ", "sup ", "oi ", "yo ")):
+        await message.add_reaction("👋")
+    await client.process_commands(message)
 #----------------------Dying-------------------------
 @client.command()
 @commands.is_owner()
@@ -42,18 +53,19 @@ async def stop(ctx):
         await ctx.send("Unable to stop bot.")
 #----------------------Cogs--------------------------
 extensions = [
-    "base", # non-functioning atm
     "developer", # non functioning atm, intended for developer only commands
+    # "easter", # adds some easter eggs, although currently does nothing
+    "info", # adds functions like "github" or "liscence"
     "util" #non functioning atm, intended for random utility commands
 ]
 if __name__ == "__main__":
     print("\nLoading cogs:")
     for extension in extensions:
-        try:
-            client.load_extension(f"cogs.{extension}")
-            print(f"\tLoaded {extension}")
-        except:
-            print(f"\tError loading {extension}")
+        #try:
+        client.load_extension(f"cogs.{extension}")
+        print(f"\tLoaded {extension}")
+        #except:
+        #    print(f"\tError loading {extension}")
     print("")
 #----------------------Start-------------------------
 @client.event
@@ -63,7 +75,7 @@ async def on_connect():
 async def on_ready():
     print("Changing status...")
     time.sleep(0.5)
-    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name="porn"))
+    await client.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name="gay porn"))
     print(f"Ready. Logged in as {client.user.name}")
 @client.event
 async def on_disconnect():
