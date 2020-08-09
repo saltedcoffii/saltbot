@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.0.3] - 2020-08-09
+### Added
+- Duckduckgo bang feature invoked with `&!<bang> <search> [terms]`.
+    - Bangs cog, associated with Duckduckgo bang feature
+    - Learn more about Duckduckgo bangs at [duckduckgo.com/bangs](https://duckduckgo.com/bangs)
+    - Feature ported from [Miso bot](https://github.com/joinemm/miso-bot) under the [MIT License](https://mit-license.org/).
+### Changed
+- Fixed minor spelling errors
+- Changed license and github commands slightly
+- Updated README
+- Updated CHANGELOG
+  - Capitalized filename
+
+
+
 ## [0.0.2] - 2020-08-08
 ### Added
 - Bot reacts with 👋 to messages that start with words like "hello" and "sup".

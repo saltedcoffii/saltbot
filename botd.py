@@ -11,7 +11,7 @@ import discord
 from discord.ext import commands
 
 #----------------------Header------------------------
-client = commands.Bot(command_prefix = '&botd ')
+client = commands.Bot(command_prefix = "&botd ")
 client.remove_command('help')
 #----------------------Commands----------------------
 @client.command()
@@ -26,6 +26,8 @@ async def start(ctx):
     try:
         print("Starting bot...")
         await ctx.send("*Starting bot...*")
+        time.sleep(1.23)
+        await ctx.send("*Bot started.*")
         os.system("python3 main.py")
         print("Bot stopped.")
         await ctx.send("*Bot stopped.*")

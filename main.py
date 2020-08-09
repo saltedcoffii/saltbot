@@ -53,10 +53,11 @@ async def stop(ctx):
         await ctx.send("Unable to stop bot.")
 #----------------------Cogs--------------------------
 extensions = [
+    "bangs", # provides access to duckduckgo bangs, from miso bot
     "developer", # non functioning atm, intended for developer only commands
     # "easter", # adds some easter eggs, although currently does nothing
     "info", # adds functions like "github" or "liscence"
-    "util" #non functioning atm, intended for random utility commands
+    "util" # intended for random utility commands
 ]
 if __name__ == "__main__":
     print("\nLoading cogs:")
