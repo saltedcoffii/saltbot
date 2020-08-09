@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
     - Bangs cog, associated with Duckduckgo bang feature
     - Learn more about Duckduckgo bangs at [duckduckgo.com/bangs](https://duckduckgo.com/bangs)
     - Feature ported from [Miso bot](https://github.com/joinemm/miso-bot) under the [MIT License](https://mit-license.org/).
+- New requirement aiohttp 3.6.2
+
 ### Changed
 - Fixed minor spelling errors
 - Changed license and github commands slightly
